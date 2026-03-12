@@ -1,0 +1,111 @@
+/* Background halaman kawaii */
+body {
+    font-family: 'Comic Sans MS', cursive;
+    background:
+        radial-gradient(circle at 10px 10px, #ffffff55 8px, transparent 9px),
+        radial-gradient(circle at 30px 30px, #ffffff55 8px, transparent 9px),
+        linear-gradient(135deg,#ffd6ec,#ffe4f3,#fff0f8);
+    background-size: 40px 40px;
+    color: #ff4da6;
+    margin: 0;
+    padding: 30px;
+}
+
+/* Card utama */
+.card {
+    max-width: 650px;
+    margin: 40px auto;
+    padding: 40px;
+    border-radius: 40px;
+    background: rgba(255,255,255,0.6);
+    backdrop-filter: blur(8px);
+    border: 4px solid #ffb3d9;
+    box-shadow:
+        0 15px 35px rgba(255,105,180,0.25),
+        inset 0 0 15px rgba(255,182,193,0.4);
+    text-align: center;
+    position: relative;
+}
+
+/* Hiasan atas */
+.card::before {
+    content: "🎀 🌸 💖 🌸 🎀";
+    position: absolute;
+    top: -20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 26px;
+}
+
+/* Judul */
+h1 {
+    font-size: 38px;
+    color: #ff69b4;
+    letter-spacing: 2px;
+    text-shadow: 0 4px 10px rgba(255,105,180,0.4);
+}
+
+h1::before { content: "💗 "; }
+h1::after { content: " 💗"; }
+
+/* Box dalam */
+.card .box,
+.card > div {
+    background: #fff6fb;
+    border-radius: 25px;
+    padding: 25px;
+    margin: 25px 0;
+    border: 3px dashed #ffc2de;
+    box-shadow: 0 8px 18px rgba(255,105,180,0.2);
+    transition: transform 0.2s ease;
+}
+
+/* Hover lucu */
+.card .box:hover,
+.card > div:hover {
+    transform: scale(1.03);
+}
+
+/* Garis pemisah */
+hr {
+    border: none;
+    height: 4px;
+    background: linear-gradient(to right,#ff9ecf,#ffc2de,#ff9ecf);
+    border-radius: 10px;
+    margin: 25px 0;
+}
+
+/* Text */
+p {
+    font-size: 17px;
+    color: #ff5fa2;
+}
+
+small {
+    color: #ff7ab8;
+}
+
+/* Animasi sparkle */
+@keyframes sparkle {
+    0% {opacity:0.6;}
+    50% {opacity:1;}
+    100% {opacity:0.6;}
+}
+
+.card::after {
+    content: "✨ ✨ ✨";
+    position: absolute;
+    bottom: -15px;
+    left: 50%;
+    transform: translateX(-50%);
+    animation: sparkle 2s infinite;
+}
+
+/* Style gambar sanrio */
+img {
+    width: 100%;
+    display: block;
+    border-radius: 30px; /* sudut lembut kawaii */
+    object-fit: cover;
+    margin: 15px 0;
+}
