@@ -2,11 +2,13 @@ import { createRoot } from "react-dom/client";
 import "./tailwind.css";
 import FrameworkList from "./FrameworkList";
 import FrameworkLisSearchFilter from "./FrameworkListSearchFilter";
+import ResponsiveText from "./ResponsiveDesign";
 
 createRoot(document.getElementById("root"))
-    .render(
-        <div>
-            {/* <FrameworkList/> */}
-            <FrameworkLisSearchFilter/>
-        </div>
-    )
+.render(
+  <div>
+    {/* <FrameworkList/> */}
+    {/* <FrameworkListSearchFilter/> */}
+    <ResponsiveText/>
+  </div>
+);
