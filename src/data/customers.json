@@ -1,0 +1,212 @@
+[
+  {
+    "id": "C-01",
+    "name": "Andi Herlambang",
+    "email": "andi@mail.com",
+    "phone": "0812345001",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-02",
+    "name": "Siti Aminah",
+    "email": "siti@mail.com",
+    "phone": "0812345002",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-03",
+    "name": "Budi Doremi",
+    "email": "budi@mail.com",
+    "phone": "0812345003",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "C-04",
+    "name": "Dewi Sartika",
+    "email": "dewi@mail.com",
+    "phone": "0812345004",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-05",
+    "name": "Eko Prasetyo",
+    "email": "eko@mail.com",
+    "phone": "0812345005",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-06",
+    "name": "Farida Wahid",
+    "email": "farida@mail.com",
+    "phone": "0812345006",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-07",
+    "name": "Gani Rahman",
+    "email": "gani@mail.com",
+    "phone": "0812345007",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-08",
+    "name": "Hani Safitri",
+    "email": "hani@mail.com",
+    "phone": "0812345008",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "C-09",
+    "name": "Iwan Fals",
+    "email": "iwan@mail.com",
+    "phone": "0812345009",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-10",
+    "name": "Joko Widodo",
+    "email": "joko@mail.com",
+    "phone": "0812345010",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-11",
+    "name": "Karin Novilda",
+    "email": "karin@mail.com",
+    "phone": "0812345011",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-12",
+    "name": "Lesti Kejora",
+    "email": "lesti@mail.com",
+    "phone": "0812345012",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "C-13",
+    "name": "Megawati SP",
+    "email": "mega@mail.com",
+    "phone": "0812345013",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-14",
+    "name": "Nadiem Makarim",
+    "email": "nadiem@mail.com",
+    "phone": "0812345014",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-15",
+    "name": "Olla Ramlan",
+    "email": "olla@mail.com",
+    "phone": "0812345015",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "C-16",
+    "name": "Puan Maharani",
+    "email": "puan@mail.com",
+    "phone": "0812345016",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-17",
+    "name": "Qory Sandioriva",
+    "email": "qory@mail.com",
+    "phone": "0812345017",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-18",
+    "name": "Raffi Ahmad",
+    "email": "raffi@mail.com",
+    "phone": "0812345018",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-19",
+    "name": "Sule Sutisna",
+    "email": "sule@mail.com",
+    "phone": "0812345019",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-20",
+    "name": "Tukul Arwana",
+    "email": "tukul@mail.com",
+    "phone": "0812345020",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "C-21",
+    "name": "Uus BiasaAja",
+    "email": "uus@mail.com",
+    "phone": "0812345021",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-22",
+    "name": "Vina Panduwinata",
+    "email": "vina@mail.com",
+    "phone": "0812345022",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-23",
+    "name": "Wulan Guritno",
+    "email": "wulan@mail.com",
+    "phone": "0812345023",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-24",
+    "name": "Xena Warrior",
+    "email": "xena@mail.com",
+    "phone": "0812345024",
+    "loyalty": "Bronze"
+  },
+  {
+    "id": "C-25",
+    "name": "Yuni Shara",
+    "email": "yuni@mail.com",
+    "phone": "0812345025",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-26",
+    "name": "Zaskia Mecca",
+    "email": "zaskia@mail.com",
+    "phone": "0812345026",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-27",
+    "name": "Ari Lasso",
+    "email": "ari@mail.com",
+    "phone": "0812345027",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-28",
+    "name": "Basuki Tjahaja",
+    "email": "basuki@mail.com",
+    "phone": "0812345028",
+    "loyalty": "Gold"
+  },
+  {
+    "id": "C-29",
+    "name": "Cinta Laura",
+    "email": "cinta@mail.com",
+    "phone": "0812345029",
+    "loyalty": "Silver"
+  },
+  {
+    "id": "C-30",
+    "name": "Dian Sastro",
+    "email": "dian@mail.com",
+    "phone": "0812345030",
+    "loyalty": "Gold"
+  }
+]

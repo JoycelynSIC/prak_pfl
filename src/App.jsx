@@ -8,6 +8,8 @@ import "./assets/tailwind.css";
 import { Route, Routes } from "react-router-dom";
 import Customer from "./pages/Customer";
 import Order from "./pages/Order";
+import NotFound from "./pages/NotFound";
+import ErrorPage from "./pages/ErrorPage";
 
 function App() {
   return (
@@ -20,6 +22,10 @@ function App() {
             <Route path="/" element={<Dashboard />} />
             <Route path="/orders" element={<Order />} />
             <Route path="/customers" element={<Customer />} />
+             <Route path="*" element={<NotFound/>} />
+             <Route path="/error-400" element={<ErrorPage code="400" title="Bad Request" description="Permintaan tidak dapat diproses oleh server." />} />
+<Route path="/error-401" element={<ErrorPage code="401" title="Unauthorized" description="Anda harus login terlebih dahulu." />} />
+<Route path="/error-403" element={<ErrorPage code="403" title="Forbidden" description="Anda tidak punya akses ke halaman ini." />} />
           </Routes>
         </div>
       </div>
