@@ -5,94 +5,86 @@ import RecentOrders from "../components/RecentOrders";
 import DeliveryTracker from "../components/DeliveryTracker";
 
 export default function Dashboard() {
-    const [time, setTime] = useState(new Date());
+  const [time, setTime] = useState(new Date());
+  const [isLoaded, setIsLoaded] = useState(false);
 
-    useEffect(() => {
-        const timer = setInterval(() => setTime(new Date()), 1000);
-        return () => clearInterval(timer);
-    }, []);
+  useEffect(() => {
+    setIsLoaded(true); 
+    const timer = setInterval(() => setTime(new Date()), 1000);
+    return () => clearInterval(timer);
+  }, []);
 
-    const getGreeting = () => {
-        const hour = time.getHours();
-        if (hour < 11) return { text: "Selamat Pagi", icon: "🌅" };
-        if (hour < 15) return { text: "Selamat Siang", icon: "☀️" };
-        if (hour < 19) return { text: "Selamat Sore", icon: "🌆" };
-        return { text: "Selamat Malam", icon: "🌙" };
-    };
+  const getGreeting = () => {
+    const hour = time.getHours();
+    if (hour < 11) return { text: "Selamat Pagi", icon: "🌅" };
+    if (hour < 15) return { text: "Selamat Siang", icon: "☀️" };
+    if (hour < 19) return { text: "Selamat Sore", icon: "🌆" };
+    return { text: "Selamat Malam", icon: "🌙" };
+  };
 
-    const greeting = getGreeting();
+  const greeting = getGreeting();
+  const stats = [
+    { label: "Total Orders", value: "75", icon: <FaShoppingCart />, color: "bg-[#546B41]", shadow: "shadow-[#546B41]/20", textColor: "text-[#FFF8EC]" },
+    { label: "Delivered", value: "175", icon: <FaTruck />, color: "bg-[#99AD7A]", shadow: "shadow-[#99AD7A]/20", textColor: "text-[#FFF8EC]" },
+    { label: "Canceled", value: "40", icon: <FaBan />, color: "bg-[#DCCCAC]", shadow: "shadow-[#DCCCAC]/20", textColor: "text-[#546B41]" },
+    { label: "Revenue", value: "Rp.128", icon: <FaDollarSign />, color: "bg-[#546B41]", shadow: "shadow-[#546B41]/20", textColor: "text-[#FFF8EC]" },
+  ];
 
-    return (
-        <div id="dashboard-container" className="bg-latar min-h-screen pb-10">
-            <PageHeader />
-            <div className="px-5 py-4 flex justify-between items-end">
-                <div>
-                    <h1 className="text-3xl font-black text-gray-800 tracking-tighter">
-                        {greeting.text} {greeting.icon}
-                    </h1>
-                    <p className="text-gray-400 font-bold text-sm uppercase tracking-widest mt-1">
-                        Joycelyn Dhealiva • <span className="text-hijau">Admin Mode</span>
-                    </p>
-                </div>
-            
-                <div className="hidden md:block bg-white px-5 py-3 rounded-2xl shadow-sm border border-white text-right">
-                    <p className="text-[10px] font-black text-gray-300 uppercase tracking-[0.2em] mb-1">Live Time</p>
-                    <p className="text-xl font-black text-gray-800 tabular-nums tracking-tight">
-                        {time.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
-                    </p>
-                </div>
+  return (
+    <div id="dashboard-container" className="min-h-screen bg-[#FFF8EC] pb-10">
+      <div className="px-10">
+        <PageHeader 
+          title={`${greeting.text} ${greeting.icon}`} 
+          breadcrumb={["Joycelyn Dhealiva", "Admin Mode"]}
+        >
+          <div className="flex flex-col items-end bg-white px-5 py-2.5 rounded-2xl border border-[#DCCCAC]/40 shadow-sm transition-all duration-700">
+            <p className="text-[9px] font-black text-[#DCCCAC] uppercase tracking-[0.2em] mb-0.5">Live Time</p>
+            <p className="text-lg font-black text-[#546B41] tabular-nums leading-none">
+              {time.toLocaleTimeString('id-ID', { hour: '2-digit', minute: '2-digit', second: '2-digit' })}
+            </p>
+          </div>
+        </PageHeader>
+      </div>
+
+      {/* Stats Cards dengan Staggered Animation */}
+      <div id="dashboard-grid" className="px-10 grid sm:grid-cols-2 md:grid-cols-4 gap-6 mt-2">
+        {stats.map((item, i) => (
+          <div 
+            key={i}
+            style={{ 
+              transitionDelay: `${i * 100}ms`,
+              opacity: isLoaded ? 1 : 0,
+              transform: isLoaded ? 'scale(1)' : 'scale(0.9) translateY(10px)'
+            }}
+            className="flex items-center space-x-5 bg-white rounded-[2rem] shadow-sm border-2 border-transparent hover:border-[#DCCCAC]/50 transition-all duration-500 p-5 group cursor-default"
+          >
+            <div className={`${item.color} rounded-2xl p-4 shadow-lg ${item.shadow} group-hover:rotate-6 transition-transform duration-300`}>
+              {React.cloneElement(item.icon, { className: `text-xl ${item.textColor}` })}
             </div>
-            
-            <div id="dashboard-grid" className="p-5 grid sm:grid-cols-2 md:grid-cols-4 gap-4">
-                <div id="dashboard-orders" className="flex items-center space-x-5 bg-white rounded-lg shadow-md p-4">
-                    <div id="orders-icon" className="bg-hijau rounded-full p-4">
-                        <FaShoppingCart className="text-3xl text-white" />
-                    </div>
-                    <div id="orders-info" className="flex flex-col">
-                        <span id="orders-count" className="text-2xl font-bold">75</span>
-                        <span id="orders-text" className="text-gray-400">Total Orders</span>
-                    </div>
-                </div>
-
-                <div id="dashboard-delivered" className="flex items-center space-x-5 bg-white rounded-lg shadow-md p-4">
-                    <div id="delivered-icon" className="bg-biru rounded-full p-4">
-                        <FaTruck className="text-3xl text-white" />
-                    </div>
-                    <div id="delivered-info" className="flex flex-col">
-                        <span id="delivered-count" className="text-2xl font-bold">175</span>
-                        <span id="delivered-text" className="text-gray-400">Total Delivered</span>
-                    </div>
-                </div>
-
-                <div id="dashboard-canceled" className="flex items-center space-x-5 bg-white rounded-lg shadow-md p-4">
-                    <div id="canceled-icon" className="bg-merah rounded-full p-4">
-                        <FaBan className="text-3xl text-white" />
-                    </div>
-                    <div id="canceled-info" className="flex flex-col">
-                        <span id="canceled-count" className="text-2xl font-bold">40</span>
-                        <span id="canceled-text" className="text-gray-400">Total Canceled</span>
-                    </div>
-                </div>
-
-                <div id="dashboard-revenue" className="flex items-center space-x-5 bg-white rounded-lg shadow-md p-4">
-                    <div id="revenue-icon" className="bg-kuning rounded-full p-4">
-                        <FaDollarSign className="text-3xl text-white" />
-                    </div>
-                    <div id="revenue-info" className="flex flex-col">
-                        <span id="revenue-amount" className="text-2xl font-bold">Rp.128</span>
-                        <span id="revenue-text" className="text-gray-400">Total Revenue</span>
-                    </div>
-                </div>
+            <div className="flex flex-col">
+              <span className="text-2xl font-black text-[#546B41] tracking-tight">{item.value}</span>
+              <span className="text-[#99AD7A] text-[10px] font-black uppercase tracking-wider">{item.label}</span>
             </div>
+          </div>
+        ))}
+      </div>
 
-            <div className="grid grid-cols-1 lg:grid-cols-12 gap-6 px-5 mt-2 items-start">
-                <div className="lg:col-span-8">
-                    <RecentOrders />
-                </div>
-                <div className="lg:col-span-4">
-                    <DeliveryTracker />
-                </div>
-            </div>
+      {/* Bottom Content dengan Fade In Slide Up */}
+      <div 
+        style={{ 
+          opacity: isLoaded ? 1 : 0,
+          transform: isLoaded ? 'translateY(0)' : 'translateY(20px)',
+          transition: 'all 0.8s ease-out 400ms' // Delay 400ms nunggu kartu selesai
+        }}
+        className="grid grid-cols-1 lg:grid-cols-12 gap-6 px-10 mt-8 items-start"
+      >
+        <div className="lg:col-span-8 bg-white rounded-[2.5rem] p-2 shadow-sm border border-[#DCCCAC]/30 hover:shadow-md transition-shadow">
+          <RecentOrders />
         </div>
-    );
+        <div className="lg:col-span-4 bg-white rounded-[2.5rem] p-2 shadow-sm border border-[#DCCCAC]/30 hover:shadow-md transition-shadow">
+          <DeliveryTracker />
+        </div>
+      </div>
+    </div>
+  );
 }
