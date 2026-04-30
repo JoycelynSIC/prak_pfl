@@ -19,7 +19,7 @@ function App() {
   return (
     <Suspense fallback={<Loading />}>
       <Routes>
-        <Route path="/" element={<MainLayout />}>
+        <Route element={<MainLayout />}>
           <Route path="/" element={<Dashboard />} /> 
           <Route path="orders" element={<Order />} />
           <Route path="customers" element={<Customer />} />
