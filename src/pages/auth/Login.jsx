@@ -23,11 +23,9 @@ export default function Login() {
 
     const handleSubmit = async (e) => {
         e.preventDefault();
-        
-        // --- LOGIKA VALIDASI INPUT KOSONG ---
         if (!dataForm.email || !dataForm.password) {
             setError("Username and password required");
-            return; // Berhenti di sini, jangan lanjut ke Axios
+            return; 
         }
 
         setLoading(true);
@@ -57,7 +55,6 @@ export default function Login() {
             });
     };
 
-    // --- ALERT ERROR SESUAI GAMBAR ---
     const errorInfo = error ? (
         <div className="bg-[#FFD1D1] mb-6 p-4 rounded-lg flex items-center border border-red-200">
             <div className="bg-red-600 rounded-full p-1 me-3">
@@ -78,7 +75,6 @@ export default function Login() {
 
     return (
         <div className="text-center">
-            {/* Logo Sedap sesuai gambar */}
             <h1 className="text-4xl font-black text-gray-900 mb-2">
                 Sedap<span className="text-green-500">.</span>
             </h1>
