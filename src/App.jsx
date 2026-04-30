@@ -1,39 +1,43 @@
-import { useState } from "react";
-import Sidebar from "./layouts/Sidebar";
-import Header from "./layouts/Header";
-import Dashboard from "./pages/Dashboard";
+import React, { Suspense } from "react";
+import { Route, Routes } from "react-router-dom";
+const MainLayout = React.lazy(() => import("./layouts/MainLayout"));
+import AuthLayout from "./layouts/AuthLayout";
+const Dashboard = React.lazy(() => import("./pages/Dashboard"));
+const Customer = React.lazy(() => import("./pages/Customer"));
+const Order = React.lazy(() => import("./pages/Order"));
+const NotFound = React.lazy(() => import("./pages/NotFound"));
+const ErrorPage = React.lazy(() => import("./pages/ErrorPage"));
+const Register = React.lazy(() => import("./pages/Register"));
+const Forgot = React.lazy(() => import("./pages/Forgot"));
+const Login = React.lazy(() => import("./pages/Login"));
+const Header = React.lazy(() => import("./components/Header"));
+const Sidebar = React.lazy(() => import("./components/Sidebar"));
 import "./assets/tailwind.css";
-import { Route, Routes, useLocation } from "react-router-dom";
-import Customer from "./pages/Customer";
-import Order from "./pages/Order";
-import NotFound from "./pages/NotFound";
-import ErrorPage from "./pages/ErrorPage";
+import Loading from "./components/Loading"; 
 
 function App() {
-  const location = useLocation();
   return (
-    <div id="app-container" className="bg-[#FFF8EC] flex min-h-screen w-full items-stretch">
-      <Sidebar />
-      <div id="main-content" className="flex-1 flex flex-col min-w-0"> 
-        <Header />
-        <div 
-          key={location.pathname} 
-          className="flex-1 animate-in fade-in zoom-in-95 duration-500 ease-out">
-          <Routes location={location}>
-            <Route path="/" element={<Dashboard />} />
-            <Route path="/orders" element={<Order />} />
-            <Route path="/customers" element={<Customer />} />
-            <Route path="*" element={<NotFound/>} />
-            <Route path="/error-400" element={<ErrorPage code="400" 
-            title="Bad Request" description="Permintaan tidak dapat diproses oleh server." />} />
-            <Route path="/error-401" element={<ErrorPage code="401" 
-            title="Unauthorized" description="Anda harus login terlebih dahulu." />} />
-            <Route path="/error-403" element={<ErrorPage code="403" 
-            title="Forbidden" description="Anda tidak punya akses ke halaman ini." />} />
-          </Routes>
-        </div>
-      </div>
-    </div>
+    <Suspense fallback={<Loading />}>
+      <Routes>
+        <Route path="/" element={<MainLayout />}>
+          <Route path="/" element={<Dashboard />} /> 
+          <Route path="orders" element={<Order />} />
+          <Route path="customers" element={<Customer />} />
+          
+          <Route path="error-400" element={<ErrorPage code="400" title="Bad Request" description="Permintaan tidak dapat diproses oleh server." />} />
+          <Route path="error-401" element={<ErrorPage code="401" title="Unauthorized" description="Anda harus login terlebih dahulu." />} />
+          <Route path="error-403" element={<ErrorPage code="403" title="Forbidden" description="Anda tidak punya akses ke halaman ini." />} />
+        </Route>
+
+        <Route element={<AuthLayout />}>
+          <Route path="login" element={<Login />} />
+          <Route path="register" element={<Register />} />
+          <Route path="forgot" element={<Forgot />} />
+        </Route>
+
+        <Route path="*" element={<NotFound />} />
+      </Routes>
+    </Suspense>
   );
 }
 export default App;
