@@ -1,5 +1,5 @@
 import React from "react";
-import { FaThLarge, FaShoppingBasket, FaUsers, FaPlus, FaExclamationTriangle, FaLock, FaUserShield } from "react-icons/fa";
+import { FaThLarge, FaShoppingBasket, FaUsers, FaBoxOpen, FaPlus, FaExclamationTriangle, FaLock, FaUserShield } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
@@ -52,6 +52,12 @@ export default function Sidebar() {
             <NavLink id="menu-3" to="/customers" className={menuClass}>
               <FaUsers className="mr-4 text-xl" /> 
               <span className="tracking-tight">Customers</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink id="menu-4" to="/products" className={menuClass}>
+              <FaBoxOpen className="mr-4 text-xl" /> 
+              <span className="tracking-tight">Products</span>
             </NavLink>
           </li>
         </ul>

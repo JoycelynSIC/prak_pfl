@@ -5,6 +5,7 @@ import AuthLayout from "./layouts/AuthLayout";
 const Dashboard = React.lazy(() => import("./pages/Dashboard"));
 const Customer = React.lazy(() => import("./pages/Customer"));
 const Order = React.lazy(() => import("./pages/Order"));
+const Product = React.lazy(() => import("./pages/Product"));
 const NotFound = React.lazy(() => import("./pages/NotFound"));
 const ErrorPage = React.lazy(() => import("./pages/ErrorPage"));
 const Register = React.lazy(() => import("./pages/auth/Register"));
@@ -14,6 +15,7 @@ const Header = React.lazy(() => import("./components/Header"));
 const Sidebar = React.lazy(() => import("./components/Sidebar"));
 import "./assets/tailwind.css";
 import Loading from "./components/Loading"; 
+const ProductDetail = React.lazy(() => import("./pages/ProductDetail"))
 
 function App() {
   return (
@@ -23,6 +25,8 @@ function App() {
           <Route path="/" element={<Dashboard />} /> 
           <Route path="orders" element={<Order />} />
           <Route path="customers" element={<Customer />} />
+          <Route path="products" element={<Product />} />
+          <Route path="/products/:id" element={<ProductDetail />} /> 
           
           <Route path="error-400" element={<ErrorPage code="400" title="Bad Request" description="Permintaan tidak dapat diproses oleh server." />} />
           <Route path="error-401" element={<ErrorPage code="401" title="Unauthorized" description="Anda harus login terlebih dahulu." />} />
