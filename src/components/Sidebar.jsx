@@ -27,7 +27,7 @@ export default function Sidebar() {
           </b>
         </span>
         <span id="logo-subtitle" className="font-bold text-[#DCCCAC] text-xs uppercase tracking-[0.2em]">
-          Modern Admin Dashboard
+          Selamat Datang di React Git App
         </span>
       </div>
 
