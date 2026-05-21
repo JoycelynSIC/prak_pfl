@@ -3,6 +3,7 @@ import { FaShoppingCart, FaTruck, FaBan, FaDollarSign } from "react-icons/fa";
 import PageHeader from "../components/PageHeader";
 import RecentOrders from "../components/RecentOrders";
 import DeliveryTracker from "../components/DeliveryTracker";
+import Card from "../components/Card";
 
 export default function Dashboard() {
   const [time, setTime] = useState(new Date());
@@ -49,7 +50,7 @@ export default function Dashboard() {
       {/* Stats Cards dengan Staggered Animation */}
       <div id="dashboard-grid" className="px-10 grid sm:grid-cols-2 md:grid-cols-4 gap-6 mt-2">
         {stats.map((item, i) => (
-          <div 
+          <Card 
             key={i}
             style={{ 
               transitionDelay: `${i * 100}ms`,
@@ -65,7 +66,7 @@ export default function Dashboard() {
               <span className="text-2xl font-black text-[#546B41] tracking-tight">{item.value}</span>
               <span className="text-[#99AD7A] text-[10px] font-black uppercase tracking-wider">{item.label}</span>
             </div>
-          </div>
+          </Card>
         ))}
       </div>
 

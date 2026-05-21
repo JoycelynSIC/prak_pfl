@@ -1,5 +1,14 @@
 import React from "react";
-import { FaThLarge, FaShoppingBasket, FaUsers, FaBoxOpen, FaPlus, FaExclamationTriangle, FaLock, FaUserShield } from "react-icons/fa";
+import {
+  FaThLarge,
+  FaShoppingBasket,
+  FaUsers,
+  FaBoxOpen,
+  FaPlus,
+  FaExclamationTriangle,
+  FaLock,
+  FaUserShield,
+} from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
 export default function Sidebar() {
@@ -26,7 +35,10 @@ export default function Sidebar() {
             .
           </b>
         </span>
-        <span id="logo-subtitle" className="font-bold text-[#DCCCAC] text-xs uppercase tracking-[0.2em]">
+        <span
+          id="logo-subtitle"
+          className="font-bold text-[#DCCCAC] text-xs uppercase tracking-[0.2em]"
+        >
           Selamat Datang di React Git App
         </span>
       </div>
@@ -38,26 +50,32 @@ export default function Sidebar() {
         <ul id="menu-list" className="space-y-3">
           <li>
             <NavLink id="menu-1" to="/" className={menuClass}>
-              <FaThLarge className="mr-4 text-xl" /> 
+              <FaThLarge className="mr-4 text-xl" />
               <span className="tracking-tight">Dashboard</span>
             </NavLink>
           </li>
           <li>
             <NavLink id="menu-2" to="/orders" className={menuClass}>
-              <FaShoppingBasket className="mr-4 text-xl" /> 
+              <FaShoppingBasket className="mr-4 text-xl" />
               <span className="tracking-tight">Orders</span>
             </NavLink>
           </li>
           <li>
             <NavLink id="menu-3" to="/customers" className={menuClass}>
-              <FaUsers className="mr-4 text-xl" /> 
+              <FaUsers className="mr-4 text-xl" />
               <span className="tracking-tight">Customers</span>
             </NavLink>
           </li>
           <li>
             <NavLink id="menu-4" to="/products" className={menuClass}>
-              <FaBoxOpen className="mr-4 text-xl" /> 
+              <FaBoxOpen className="mr-4 text-xl" />
               <span className="tracking-tight">Products</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink id="menu-4" to="/components" className={menuClass}>
+              <FaBoxOpen className="mr-4 text-xl" />
+              <span className="tracking-tight">Components</span>
             </NavLink>
           </li>
         </ul>
@@ -68,19 +86,19 @@ export default function Sidebar() {
         <ul id="error-menu-list" className="space-y-3">
           <li>
             <NavLink id="menu-e400" to="/error-400" className={menuClass}>
-              <FaExclamationTriangle className="mr-4 text-xl" /> 
+              <FaExclamationTriangle className="mr-4 text-xl" />
               <span className="tracking-tight">Error 400</span>
             </NavLink>
           </li>
           <li>
             <NavLink id="menu-e401" to="/error-401" className={menuClass}>
-              <FaLock className="mr-4 text-xl" /> 
+              <FaLock className="mr-4 text-xl" />
               <span className="tracking-tight">Error 401</span>
             </NavLink>
           </li>
           <li>
             <NavLink id="menu-e403" to="/error-403" className={menuClass}>
-              <FaUserShield className="mr-4 text-xl" /> 
+              <FaUserShield className="mr-4 text-xl" />
               <span className="tracking-tight">Error 403</span>
             </NavLink>
           </li>
@@ -111,12 +129,18 @@ export default function Sidebar() {
             className="w-24 absolute -right-2 -bottom-2 grayscale-[0.2] brightness-90 shadow-2xl"
           />
         </div>
-        
+
         <div className="px-2">
-          <span id="footer-brand" className="font-black text-[#546B41] text-[10px] uppercase tracking-widest block opacity-60">
+          <span
+            id="footer-brand"
+            className="font-black text-[#546B41] text-[10px] uppercase tracking-widest block opacity-60"
+          >
             Sedap Restaurant
           </span>
-          <p id="footer-copyright" className="font-bold text-[#DCCCAC] text-[9px] mt-1 tracking-tighter uppercase">
+          <p
+            id="footer-copyright"
+            className="font-bold text-[#DCCCAC] text-[9px] mt-1 tracking-tighter uppercase"
+          >
             &copy; 2026 All Right Reserved
           </p>
         </div>
