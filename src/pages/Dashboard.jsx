@@ -36,7 +36,7 @@ export default function Dashboard() {
       <div className="px-10">
         <PageHeader 
           title={`${greeting.text} ${greeting.icon}`} 
-          breadcrumb={["Joycelyn Dhealiva", "Admin Mode"]}
+          breadcrumb={["Joycelyn Dhealiva ", "Admin Mode"]}
         >
           <div className="flex flex-col items-end bg-white px-5 py-2.5 rounded-2xl border border-[#DCCCAC]/40 shadow-sm transition-all duration-700">
             <p className="text-[9px] font-black text-[#DCCCAC] uppercase tracking-[0.2em] mb-0.5">Live Time</p>
