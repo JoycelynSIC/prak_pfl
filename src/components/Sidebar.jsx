@@ -78,6 +78,12 @@ export default function Sidebar() {
               <span className="tracking-tight">Components</span>
             </NavLink>
           </li>
+          <li>
+            <NavLink id="menu-4" to="/fiturxyz" className={menuClass}>
+              <FaBoxOpen className="mr-4 text-xl" />
+              <span className="tracking-tight">Fitur XYZ</span>
+            </NavLink>
+          </li>
         </ul>
 
         <p className="px-4 mt-12 mb-5 text-[10px] font-black text-[#DCCCAC] uppercase tracking-[0.25em]">

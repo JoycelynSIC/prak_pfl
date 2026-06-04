@@ -13,6 +13,7 @@ const Forgot = React.lazy(() => import("./pages/auth/Forgot"));
 const Login = React.lazy(() => import("./pages/auth/Login"));
 const Header = React.lazy(() => import("./components/Header"));
 const Sidebar = React.lazy(() => import("./components/Sidebar"));
+const FiturXYZ = React.lazy(() => import("./pages/FiturXYZ"));
 import "./assets/tailwind.css";
 import Loading from "./components/Loading"; 
 import Components from "./pages/Components";
@@ -29,7 +30,8 @@ function App() {
           <Route path="products" element={<Product />} />
           <Route path="/products/:id" element={<ProductDetail />} /> 
           <Route path="/components" element={<Components />} />
-          
+          <Route path="/fiturxyz" element={<FiturXYZ />} />
+
           <Route path="error-400" element={<ErrorPage code="400" title="Bad Request" description="Permintaan tidak dapat diproses oleh server." />} />
           <Route path="error-401" element={<ErrorPage code="401" title="Unauthorized" description="Anda harus login terlebih dahulu." />} />
           <Route path="error-403" element={<ErrorPage code="403" title="Forbidden" description="Anda tidak punya akses ke halaman ini." />} />
