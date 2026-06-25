@@ -8,6 +8,7 @@ import {
   FaExclamationTriangle,
   FaLock,
   FaUserShield,
+  FaRegStickyNote,
 } from "react-icons/fa";
 import { NavLink } from "react-router-dom";
 
@@ -82,6 +83,12 @@ export default function Sidebar() {
             <NavLink id="menu-4" to="/fiturxyz" className={menuClass}>
               <FaBoxOpen className="mr-4 text-xl" />
               <span className="tracking-tight">Fitur XYZ</span>
+            </NavLink>
+          </li>
+          <li>
+            <NavLink id="menu-notes" to="/notes" className={menuClass}>
+              <FaRegStickyNote className="mr-4 text-xl" />
+              <span className="tracking-tight">Notes</span>
             </NavLink>
           </li>
         </ul>

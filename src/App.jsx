@@ -14,8 +14,9 @@ const Login = React.lazy(() => import("./pages/auth/Login"));
 const Header = React.lazy(() => import("./components/Header"));
 const Sidebar = React.lazy(() => import("./components/Sidebar"));
 const FiturXYZ = React.lazy(() => import("./pages/FiturXYZ"));
+const Notes = React.lazy(() => import("./pages/Notes"));
 import "./assets/tailwind.css";
-import Loading from "./components/Loading"; 
+import Loading from "./components/Loading";
 import Components from "./pages/Components";
 const ProductDetail = React.lazy(() => import("./pages/ProductDetail"))
 
@@ -24,13 +25,14 @@ function App() {
     <Suspense fallback={<Loading />}>
       <Routes>
         <Route element={<MainLayout />}>
-          <Route path="/" element={<Dashboard />} /> 
+          <Route path="/" element={<Dashboard />} />
           <Route path="orders" element={<Order />} />
           <Route path="customers" element={<Customer />} />
           <Route path="products" element={<Product />} />
-          <Route path="/products/:id" element={<ProductDetail />} /> 
+          <Route path="/products/:id" element={<ProductDetail />} />
           <Route path="/components" element={<Components />} />
           <Route path="/fiturxyz" element={<FiturXYZ />} />
+          <Route path="/notes" element={<Notes />} />
 
           <Route path="error-400" element={<ErrorPage code="400" title="Bad Request" description="Permintaan tidak dapat diproses oleh server." />} />
           <Route path="error-401" element={<ErrorPage code="401" title="Unauthorized" description="Anda harus login terlebih dahulu." />} />
