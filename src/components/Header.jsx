@@ -2,8 +2,13 @@ import React from "react";
 import { FaBell, FaSearch } from "react-icons/fa";
 import { FcAreaChart } from "react-icons/fc";
 import { SlSettings } from "react-icons/sl";
+import { useAuth } from "../context/AuthContext";
 
 export default function Header() {
+    const { profile } = useAuth();
+    const isAdmin = profile?.role === "admin";
+    const avatarSeed = isAdmin ? "28" : "45";
+
     return (
         <div id="header-container" className="flex justify-between items-center p-6 bg-[#FFF8EC]">
             <div id="search-bar" className="relative w-full max-w-lg">
@@ -19,11 +24,8 @@ export default function Header() {
             <div id="icons-container" className="flex items-center space-x-4">
                 <div id="notification-icon" className="relative p-3 bg-white border border-[#DCCCAC] rounded-2xl text-[#546B41] cursor-pointer hover:bg-[#FFF8EC] transition-all">
                     <FaBell />
-                    <span id="notification-badge" className="absolute top-0 right-0 transform translate-x-1/2 -translate-y-1/2 bg-[#546B41] text-[#FFF8EC] rounded-full px-2 py-0.5 text-[10px] font-bold shadow-md">
-                        50
-                    </span>
                 </div>
-                
+
                 <div id="chart-icon" className="p-3 bg-white border border-[#DCCCAC] rounded-2xl cursor-pointer hover:bg-[#FFF8EC] transition-all">
                     <FcAreaChart />
                 </div>
@@ -33,13 +35,20 @@ export default function Header() {
                 </div>
 
                 <div id="profile-container" className="flex items-center space-x-4 border-l-2 pl-4 border-[#DCCCAC]">
-                    <span id="profile-text" className="text-[#546B41] text-sm">
-                        Hello, <b className="font-black">Joycelyn Dhealiva</b>
-                    </span>
+                    <div className="flex flex-col items-end">
+                        <span id="profile-text" className="text-[#546B41] text-sm">
+                            Hello, <b className="font-black">{profile?.full_name ?? "..."}</b>
+                        </span>
+                        <span className="text-[10px] font-black text-[#99AD7A] uppercase tracking-wider">
+                            {profile?.role ?? ""}
+                            {!isAdmin && profile?.current_tier ? ` · ${profile.current_tier}` : ""}
+                        </span>
+                    </div>
                     <img
                         id="profile-avatar"
-                        src="https://avatar.iran.liara.run/public/28"
+                        src={`https://avatar.iran.liara.run/public/${avatarSeed}`}
                         className="w-10 h-10 rounded-full border-2 border-[#546B41] p-0.5"
+                        alt="avatar"
                     />
                 </div>
             </div>
